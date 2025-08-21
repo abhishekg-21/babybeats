@@ -5,298 +5,300 @@
 }
 
 body {
-  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
-  background-color: #f8f4f2; /* Updated background colors to match image exactly */
+  font-family: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  background-color: #fdf7f7;
+  color: #333;
+  line-height: 1.5;
+}
+
+.app-container {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Header */
+.header {
+  background: white;
+  padding: 16px 24px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 1px solid #f0f0f0;
+  position: sticky;
+  top: 0;
+  z-index: 100;
+}
+
+.logo-text {
+  font-size: 24px;
+  font-weight: 600;
   color: #333;
 }
 
-.container {
-  display: flex;
-  min-height: 100vh;
+.logo-accent {
+  color: #e85a8a;
 }
 
-/* Sidebar */
+.header-actions {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.notification-bell {
+  position: relative;
+  padding: 8px;
+  cursor: pointer;
+  color: #666;
+}
+
+.notification-dot {
+  position: absolute;
+  top: 6px;
+  right: 6px;
+  width: 8px;
+  height: 8px;
+  background: #e85a8a;
+  border-radius: 50%;
+}
+
+.profile-avatar img {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+/* Main Layout */
+.main-layout {
+  display: flex;
+  flex: 1;
+  gap: 24px;
+  padding: 24px;
+  max-width: 1400px;
+  margin: 0 auto;
+  width: 100%;
+}
+
+/* Left Sidebar */
 .sidebar {
   width: 200px;
-  background-color: #f3eeec; /* Updated background colors to match image exactly */
-  padding: 2rem 1rem;
-  border-right: 1px solid #e0e0e0;
-}
-
-.logo {
-  margin-bottom: 2rem;
-  font-size: 1.5rem;
-  font-weight: 600;
-}
-
-.logo-baby {
-  color: #333;
-  font-weight: 400;
-}
-
-.logo-beats {
-  color: #4a90e2;
-  font-weight: 600;
+  flex-shrink: 0;
 }
 
 .nav-menu {
   list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
 }
 
 .nav-item {
-  margin-bottom: 0.5rem;
+  border-radius: 12px;
+  overflow: hidden;
+}
+
+.nav-item.active {
+  background: #e85a8a;
 }
 
 .nav-link {
   display: block;
-  padding: 0.75rem 1rem;
+  padding: 16px 20px;
   text-decoration: none;
   color: #666;
-  border-radius: 25px;
-  transition: all 0.3s ease;
+  font-weight: 500;
+  transition: all 0.2s ease;
 }
 
 .nav-item.active .nav-link {
-  background-color: #ff6b9d;
   color: white;
 }
 
 .nav-link:hover {
-  background-color: #ff6b9d;
-  color: white;
+  background: rgba(232, 90, 138, 0.1);
+}
+
+.nav-item.active .nav-link:hover {
+  background: rgba(255, 255, 255, 0.1);
 }
 
 /* Main Content */
 .main-content {
   flex: 1;
-  padding: 1rem 2rem;
+  max-width: 800px;
 }
 
-.header {
-  display: flex;
-  justify-content: flex-end;
-  align-items: center;
-  gap: 1rem;
-  margin-bottom: 2rem;
-}
-
-.notification-icon,
-.profile-icon {
-  width: 40px;
-  height: 40px;
-  border-radius: 50%;
-  background-color: white;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-  cursor: pointer;
-  color: #666;
-}
-
-.profile-icon {
-  background-color: transparent;
-  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-  overflow: hidden;
-}
-
-/* Content Grid */
 .content-grid {
   display: grid;
-  grid-template-columns: 1fr 1fr 1fr;
-  grid-template-rows: auto auto auto auto;
-  gap: 1.5rem;
-  max-width: 1200px;
+  grid-template-columns: 1fr 1fr;
+  gap: 24px;
+  grid-template-areas:
+    "welcome week-tracker"
+    "hero hero"
+    "calendar calendar"
+    "tips tips";
 }
 
 /* Welcome Card */
 .welcome-card {
-  grid-column: 1 / 2;
-  grid-row: 1 / 2;
+  grid-area: welcome;
   background: white;
-  padding: 2rem;
+  padding: 32px;
   border-radius: 20px;
-  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+}
+
+.welcome-title {
+  font-size: 32px;
+  font-weight: 700;
+  color: #333;
+  margin-bottom: 8px;
+}
+
+.welcome-subtitle {
+  font-size: 16px;
+  color: #666;
+  line-height: 1.6;
+}
+
+/* Week Tracker Card */
+.week-tracker-card {
+  grid-area: week-tracker;
+  background: white;
+  padding: 24px;
+  border-radius: 20px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+  text-align: center;
+}
+
+.card-title {
+  font-size: 18px;
+  font-weight: 600;
+  color: #333;
+  margin-bottom: 16px;
+}
+
+.week-info {
   display: flex;
   flex-direction: column;
-  justify-content: center;
+  align-items: center;
+  gap: 16px;
 }
 
-.welcome-card h1 {
-  font-size: 2.2rem;
-  margin-bottom: 1rem;
-  color: #333;
+.week-text {
+  font-size: 20px;
   font-weight: 600;
-  line-height: 1.2;
-}
-
-.welcome-card p {
-  color: #666;
-  font-size: 1.1rem;
-  line-height: 1.4;
-}
-
-/* Week Tracker */
-.week-tracker {
-  grid-column: 2 / 4;
-  grid-row: 1 / 2;
-  background: white;
-  padding: 2rem;
-  border-radius: 20px;
-  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
-  display: grid;
-  grid-template-columns: 1fr auto;
-  grid-template-rows: auto auto auto;
-  align-items: start;
-  gap: 0.5rem;
-}
-
-.week-tracker h3 {
-  font-size: 1.1rem;
-  color: #666;
-  margin-bottom: 0;
-  grid-column: 1;
-  grid-row: 1;
-  font-weight: 500;
-}
-
-.week-tracker h2 {
-  font-size: 1.8rem;
   color: #333;
-  margin-bottom: 0;
-  grid-column: 1;
-  grid-row: 2;
-  font-weight: 600;
 }
 
 .progress-circle {
-  grid-column: 2;
-  grid-row: 1 / 4;
-  margin: 0;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-.progress-ring {
   position: relative;
-  display: inline-block;
 }
 
-.progress-ring svg {
-  width: 90px;
-  height: 90px;
+.progress-icon {
+  font-size: 24px;
+  fill: #4a90e2;
 }
 
-.progress-ring circle:first-child {
-  stroke: #e8f0ff;
-  stroke-width: 6;
-}
-
-.progress-ring circle:last-child {
-  stroke: #4a90e2;
-  stroke-width: 6;
-  stroke-dasharray: 220;
-  stroke-dashoffset: 66;
-  stroke-linecap: round;
-  transform: rotate(-90deg);
-  transform-origin: center;
-}
-
-.heart {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  font-size: 1.8rem;
-  filter: hue-rotate(200deg);
-}
-
-.week-tracker p {
+.milestones-text {
+  font-size: 14px;
   color: #666;
-  font-size: 0.95rem;
-  margin-top: 0.5rem;
-  grid-column: 1;
-  grid-row: 3;
-  align-self: end;
+  margin-top: 16px;
 }
 
-/* Appointments Card */
-.appointments-card {
-  grid-column: 1 / 2;
-  grid-row: 2 / 4;
-  background: white;
-  padding: 1.5rem;
+/* Hero Image */
+.hero-image {
+  grid-area: hero;
   border-radius: 20px;
-  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+  height: 300px;
 }
 
-.appointments-header {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  margin-bottom: 1rem;
+.hero-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
 }
 
-.appointments-header h3 {
-  color: #333;
-  font-size: 1.2rem;
+/* Calendar Section */
+.calendar-section {
+  grid-area: calendar;
+  background: white;
+  padding: 24px;
+  border-radius: 20px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
 }
 
-.arrow {
-  color: #ff6b9d;
-  font-size: 1.2rem;
-}
-
-/* Calendar */
 .calendar-header {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  margin-bottom: 1rem;
-  background-color: #ff6b9d;
-  color: white;
-  padding: 0.75rem 1rem;
-  border-radius: 10px;
+  margin-bottom: 20px;
 }
 
-.calendar-header h4 {
-  font-size: 1rem;
-  font-weight: 500;
+.section-title {
+  font-size: 20px;
+  font-weight: 600;
+  color: #333;
+}
+
+.calendar-nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: #e85a8a;
+  padding: 12px 20px;
+  border-radius: 12px;
+  margin-bottom: 20px;
 }
 
 .nav-btn {
   background: none;
   border: none;
   color: white;
-  font-size: 1.2rem;
   cursor: pointer;
-  padding: 0.25rem 0.5rem;
+  padding: 4px;
+  border-radius: 4px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .nav-btn:hover {
-  background-color: rgba(255, 255, 255, 0.2);
-  border-radius: 4px;
+  background: rgba(255, 255, 255, 0.2);
+}
+
+.month-year {
+  color: white;
+  font-weight: 600;
+  font-size: 16px;
 }
 
 .calendar-grid {
+  width: 100%;
+}
+
+.calendar-header-row {
   display: grid;
   grid-template-columns: repeat(7, 1fr);
-  gap: 0.25rem;
+  gap: 8px;
+  margin-bottom: 12px;
 }
 
 .day-header {
   text-align: center;
   font-weight: 600;
-  padding: 0.5rem;
-  font-size: 0.9rem;
   color: #666;
+  font-size: 14px;
+  padding: 8px 4px;
 }
 
 .calendar-days {
   display: grid;
   grid-template-columns: repeat(7, 1fr);
-  gap: 0.5rem;
+  gap: 8px;
 }
 
 .calendar-day {
@@ -304,250 +306,194 @@ body {
   display: flex;
   align-items: center;
   justify-content: center;
-  cursor: pointer;
   border-radius: 8px;
+  cursor: pointer;
+  font-weight: 500;
   transition: all 0.2s ease;
-  font-size: 0.9rem;
+  position: relative;
 }
 
 .calendar-day:hover {
-  background-color: #f0f0f0;
+  background: #f5f5f5;
 }
 
-.calendar-day.selected {
-  background-color: #ff6b9d;
+.calendar-day.has-appointment {
+  background: #e85a8a;
   color: white;
-  font-weight: bold;
-  box-shadow: 0 4px 12px rgba(255, 107, 157, 0.4);
 }
 
 .calendar-day.other-month {
   color: #ccc;
 }
 
-/* Pregnancy Image */
-.pregnancy-image {
-  grid-column: 2 / 3;
-  grid-row: 2 / 4;
-  border-radius: 20px;
-  overflow: hidden;
-  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
-}
-
-.pregnancy-image img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-}
-
-/* Tips Card Small */
-.tips-card-small {
-  grid-column: 3 / 4;
-  grid-row: 2 / 3;
-  background: white;
-  padding: 1.5rem;
-  border-radius: 20px;
-  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
-}
-
-.tips-card-small h3 {
-  color: #333;
-  font-size: 1.1rem;
-  margin-bottom: 1rem;
-}
-
-.tip-item {
-  position: relative;
-}
-
-.tip-item h4 {
-  color: #333;
-  margin-bottom: 0.5rem;
-  font-size: 1.1rem;
-}
-
-.tip-item p {
-  color: #666;
-  font-size: 0.9rem;
-}
-
-.tip-icon {
-  position: absolute;
-  top: 0;
-  right: 0;
-  font-size: 2rem;
-}
-
-/* Baby Growth Tracker */
-.baby-growth {
-  grid-column: 3 / 4;
-  grid-row: 3 / 4;
-  background: white;
-  padding: 1.5rem;
-  border-radius: 20px;
-  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
-}
-
-.baby-growth h3 {
-  color: #333;
-  font-size: 1.1rem;
-  margin-bottom: 1rem;
-}
-
-.growth-stats {
-  margin-top: 1rem;
-}
-
-.stat {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  margin-bottom: 0.75rem;
-}
-
-.stat .label {
-  color: #666;
-  font-size: 0.9rem;
-}
-
-.stat .value {
-  font-weight: 600;
-  color: #333;
-  font-size: 1rem;
-}
-
 /* Tips Section */
 .tips-section {
-  grid-column: 1 / 4;
-  grid-row: 4 / 5;
+  grid-area: tips;
   background: white;
-  padding: 2rem;
+  padding: 24px;
   border-radius: 20px;
-  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
-}
-
-.tips-section h3 {
-  color: #333;
-  font-size: 1.2rem;
-  margin-bottom: 1.5rem;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
 }
 
 .tips-grid {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  gap: 2rem;
+  gap: 16px;
+  margin-top: 20px;
 }
 
 .tip-card {
   display: flex;
   align-items: center;
-  gap: 1rem;
+  gap: 16px;
+  padding: 20px;
+  background: #f8f9fa;
+  border-radius: 16px;
 }
 
-.tip-icon-large {
-  width: 50px;
-  height: 50px;
+.tip-icon {
+  width: 48px;
+  height: 48px;
+  border-radius: 12px;
   display: flex;
   align-items: center;
   justify-content: center;
-  border-radius: 50%;
   flex-shrink: 0;
 }
 
-.tip-icon-large.blue-bg {
-  background-color: #e8f4fd;
+.water-icon {
+  background: rgba(74, 144, 226, 0.1);
 }
 
-.tip-icon-large.pink-bg {
-  background-color: #fdeef4;
+.rest-icon {
+  background: rgba(255, 182, 193, 0.1);
 }
 
-.tip-content h4 {
+.tip-content {
+  flex: 1;
+}
+
+.tip-title {
+  font-size: 16px;
+  font-weight: 600;
   color: #333;
-  margin-bottom: 0.25rem;
-  font-size: 1.1rem;
+  margin-bottom: 4px;
 }
 
-.tip-content p {
+.tip-description {
+  font-size: 14px;
   color: #666;
-  font-size: 0.9rem;
+}
+
+/* Right Sidebar */
+.right-sidebar {
+  width: 280px;
+  flex-shrink: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.sidebar-card {
+  background: white;
+  padding: 24px;
+  border-radius: 20px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+}
+
+.tips-card {
+  position: relative;
+  overflow: hidden;
+}
+
+.tip-item {
+  margin-top: 16px;
+}
+
+.tip-icon-large {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  font-size: 48px;
+}
+
+.growth-card .card-title {
+  margin-bottom: 20px;
+}
+
+.growth-stats {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.stat-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.stat-label {
+  font-size: 14px;
+  color: #666;
+}
+
+.stat-value {
+  font-size: 16px;
+  font-weight: 600;
+  color: #333;
 }
 
 /* Responsive Design */
-@media (max-width: 1024px) {
-  .content-grid {
-    grid-template-columns: 1fr 1fr;
-  }
-
-  .welcome-card {
-    grid-column: 1 / 3;
-  }
-
-  .week-tracker {
-    grid-column: 1 / 3;
-  }
-
-  .appointments-card {
-    grid-column: 1 / 2;
-    grid-row: 3 / 5;
-  }
-
-  .pregnancy-image {
-    grid-column: 2 / 3;
-    grid-row: 3 / 4;
-  }
-
-  .tips-card-small {
-    grid-column: 2 / 3;
-    grid-row: 4 / 5;
-  }
-
-  .baby-growth {
-    grid-column: 1 / 3;
-  }
-
-  .tips-section {
-    grid-column: 1 / 3;
-  }
-}
-
-@media (max-width: 768px) {
-  .container {
+@media (max-width: 1200px) {
+  .main-layout {
     flex-direction: column;
   }
 
   .sidebar {
     width: 100%;
-    padding: 1rem;
   }
 
   .nav-menu {
-    display: flex;
+    flex-direction: row;
     overflow-x: auto;
-    gap: 0.5rem;
   }
 
   .nav-item {
-    margin-bottom: 0;
-    white-space: nowrap;
+    flex-shrink: 0;
   }
 
+  .right-sidebar {
+    width: 100%;
+    flex-direction: row;
+  }
+
+  .sidebar-card {
+    flex: 1;
+  }
+}
+
+@media (max-width: 768px) {
   .content-grid {
     grid-template-columns: 1fr;
-  }
-
-  .welcome-card,
-  .week-tracker,
-  .appointments-card,
-  .pregnancy-image,
-  .tips-card-small,
-  .baby-growth,
-  .tips-section {
-    grid-column: 1 / 2;
-    grid-row: auto;
+    grid-template-areas:
+      "welcome"
+      "week-tracker"
+      "hero"
+      "calendar"
+      "tips";
   }
 
   .tips-grid {
     grid-template-columns: 1fr;
+  }
+
+  .right-sidebar {
+    flex-direction: column;
+  }
+
+  .main-layout {
+    padding: 16px;
+    gap: 16px;
   }
 }
