@@ -1,203 +1,192 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>BabyBeats - Pregnancy Tracker</title>
-    <link rel="stylesheet" href="styles.css" />
-  </head>
-  <body>
-    <div class="container">
-      <nav class="sidebar">
-        <div class="logo">
-          <span class="logo-baby">baby</span
-          ><span class="logo-beats">beats</span>
-        </div>
-        <ul class="nav-menu">
-          <li class="nav-item active">
-            <a href="#" class="nav-link">Home</a>
-          </li>
-          <li class="nav-item">
-            <a href="#" class="nav-link">Week Tracker</a>
-          </li>
-          <li class="nav-item">
-            <a href="#" class="nav-link">Appointments</a>
-          </li>
-          <li class="nav-item">
-            <a href="#" class="nav-link">Self-Care</a>
-          </li>
-          <li class="nav-item">
-            <a href="#" class="nav-link">Tips</a>
-          </li>
-        </ul>
-      </nav>
-
-      <main class="main-content">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>babybeats - Pregnancy Tracker</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="modal-styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="app-container">
+        <!-- Header -->
         <header class="header">
-          <div class="notification-icon">
-            <svg
-              width="20"
-              height="20"
-              viewBox="0 0 24 24"
-              fill="none"
-              stroke="currentColor"
-              stroke-width="2"
-            >
-              <path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9"></path>
-              <path d="M13.73 21a2 2 0 0 1-3.46 0"></path>
-            </svg>
-          </div>
-          <div class="profile-icon">
-            <img
-              src="/placeholder.svg?height=40&width=40"
-              alt="Profile"
-              style="
-                width: 100%;
-                height: 100%;
-                border-radius: 50%;
-                object-fit: cover;
-              "
-            />
-          </div>
+            <div class="logo">
+                <span class="logo-text">baby<span class="logo-accent">beats</span></span>
+            </div>
+            <div class="header-actions">
+                <div class="notification-bell">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                        <path d="M13.73 21a2 2 0 0 1-3.46 0" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                    </svg>
+                    <div class="notification-dot"></div>
+                </div>
+                <div class="profile-avatar">
+                    <img src="/placeholder.svg?height=40&width=40" alt="Profile" />
+                </div>
+            </div>
         </header>
 
-        <div class="content-grid">
-          <section class="welcome-card">
-            <h1>Welcome, Emily</h1>
-            <p>Believe in your incredible strength.</p>
-          </section>
+        <div class="main-layout">
+            <!-- Left Sidebar -->
+            <nav class="sidebar">
+                <ul class="nav-menu">
+                    <li class="nav-item active">
+                        <a href="#" class="nav-link">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="#" class="nav-link">Week Tracker</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="#" class="nav-link">Appointments</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="#" class="nav-link">Self-Care</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="#" class="nav-link">Tips</a>
+                    </li>
+                </ul>
+            </nav>
 
-          <section class="week-tracker">
-            <h3>Week Tracker</h3>
-            <h2>You are in Week 22</h2>
-            <div class="progress-circle">
-              <div class="progress-ring">
-                <svg width="80" height="80">
-                  <circle
-                    cx="40"
-                    cy="40"
-                    r="35"
-                    stroke="#e8f0ff"
-                    stroke-width="8"
-                    fill="none"
-                  />
-                  <circle
-                    cx="40"
-                    cy="40"
-                    r="35"
-                    stroke="#4A90E2"
-                    stroke-width="8"
-                    fill="none"
-                    stroke-dasharray="220"
-                    stroke-dashoffset="66"
-                    stroke-linecap="round"
-                  />
-                </svg>
-                <div class="heart">💙</div>
-              </div>
-            </div>
-            <p>Milestones achieved this week</p>
-          </section>
+            <!-- Main Content -->
+            <main class="main-content">
+                <div class="content-grid">
+                    <!-- Welcome Section -->
+                    <section class="welcome-card">
+                        <h1 class="welcome-title">Welcome, Emily</h1>
+                        <p class="welcome-subtitle">Believe in your incredible strength.</p>
+                    </section>
 
-          <section class="appointments-card">
-            <div class="appointments-header">
-              <h3>Appointments</h3>
-              <span class="arrow">→</span>
-            </div>
-            <div class="calendar">
-              <div class="calendar-header">
-                <button class="nav-btn" id="prevMonth">‹</button>
-                <h4 id="currentMonth">April 2025</h4>
-                <button class="nav-btn" id="nextMonth">›</button>
-              </div>
-              <div class="calendar-grid">
-                <div class="day-header">Sun</div>
-                <div class="day-header">Mon</div>
-                <div class="day-header">Tue</div>
-                <div class="day-header">Wed</div>
-                <div class="day-header">Thu</div>
-                <div class="day-header">Fri</div>
-                <div class="day-header">Sat</div>
-              </div>
-              <div id="calendarDays" class="calendar-days"></div>
-            </div>
-          </section>
+                    <!-- Week Tracker -->
+                    <section class="week-tracker-card">
+                        <h2 class="card-title">Week Tracker</h2>
+                        <div class="week-info">
+                            <span class="week-text">You are in Week 22</span>
+                            <div class="progress-circle">
+                                <svg width="80" height="80" viewBox="0 0 80 80">
+                                    <circle cx="40" cy="40" r="35" stroke="#f0f0f0" stroke-width="8" fill="none"/>
+                                    <circle cx="40" cy="40" r="35" stroke="#E85A8A" stroke-width="8" fill="none" 
+                                            stroke-dasharray="220" stroke-dashoffset="66" stroke-linecap="round"/>
+                                    <text x="40" y="45" text-anchor="middle" class="progress-icon">💙</text>
+                                </svg>
+                            </div>
+                        </div>
+                        <p class="milestones-text">Milestones achieved this week</p>
+                    </section>
 
-          <section class="pregnancy-image">
-            <img
-              src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/WhatsApp%20Image%202025-08-21%20at%2010.59.06%20AM-d2gDm9K3q2gaH4n5q5adgPexEGwrWj.jpeg"
-              alt="Pregnant woman in pink workout clothes sitting on yoga mat"
-            />
-          </section>
+                    <!-- Hero Image -->
+                    <section class="hero-image">
+                        <img src="/placeholder.svg?height=300&width=400" alt="Pregnant woman doing yoga" />
+                    </section>
 
-          <section class="tips-card-small">
-            <h3>Tips of the day</h3>
-            <div class="tip-item">
-              <h4>Hydrate more!</h4>
-              <p>Drink at least 8 glasses or</p>
-              <div class="tip-icon">🥭</div>
-            </div>
-          </section>
+                    <!-- Calendar Section -->
+                    <section class="calendar-section">
+                        <div class="calendar-header">
+                            <h2 class="section-title">Appointments</h2>
+                            <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M7.5 5L12.5 10L7.5 15" stroke="#E85A8A" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                            </svg>
+                        </div>
+                        <div class="calendar-container">
+                            <div class="calendar-nav">
+                                <button class="nav-btn prev-btn" id="prevMonth">
+                                    <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
+                                        <path d="M10 12L6 8L10 4" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                    </svg>
+                                </button>
+                                <span class="month-year" id="monthYear">April 2025</span>
+                                <button class="nav-btn next-btn" id="nextMonth">
+                                    <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
+                                        <path d="M6 4L10 8L6 12" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                    </svg>
+                                </button>
+                            </div>
+                            <div class="calendar-grid">
+                                <div class="calendar-header-row">
+                                    <div class="day-header">Sun</div>
+                                    <div class="day-header">Mon</div>
+                                    <div class="day-header">Tue</div>
+                                    <div class="day-header">Wed</div>
+                                    <div class="day-header">Thu</div>
+                                    <div class="day-header">Fri</div>
+                                    <div class="day-header">Sat</div>
+                                </div>
+                                <div class="calendar-days" id="calendarDays">
+                                    <!-- Calendar days will be generated by JavaScript -->
+                                </div>
+                            </div>
+                        </div>
+                    </section>
 
-          <section class="baby-growth">
-            <h3>Baby Growth Tracker</h3>
-            <div class="growth-stats">
-              <div class="stat">
-                <span class="label">Your baby is</span>
-                <span class="value">1.05 lb</span>
-              </div>
-              <div class="stat">
-                <span class="label">the size of a</span>
-                <span class="value">10.9 in</span>
-              </div>
-              <div class="stat">
-                <span class="label">Movements</span>
-                <span class="value">8 kicks</span>
-              </div>
-            </div>
-          </section>
-
-          <section class="tips-section">
-            <h3>Tips of the day</h3>
-            <div class="tips-grid">
-              <div class="tip-card">
-                <div class="tip-icon-large blue-bg">
-                  <svg
-                    width="32"
-                    height="32"
-                    viewBox="0 0 24 24"
-                    fill="#4A90E2"
-                  >
-                    <path d="M12 2.69l5.66 5.66a8 8 0 1 1-11.31 0z" />
-                  </svg>
+                    <!-- Tips Section -->
+                    <section class="tips-section">
+                        <h2 class="section-title">Tips of the day</h2>
+                        <div class="tips-grid">
+                            <div class="tip-card">
+                                <div class="tip-icon water-icon">
+                                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+                                        <path d="M12 2.69L17.66 8.35C19.78 10.47 19.78 13.86 17.66 15.98C15.54 18.1 12.15 18.1 10.03 15.98C7.91 13.86 7.91 10.47 10.03 8.35L12 2.69Z" fill="#4A90E2"/>
+                                    </svg>
+                                </div>
+                                <div class="tip-content">
+                                    <h3 class="tip-title">Hydrate more!</h3>
+                                    <p class="tip-description">Drink at least 6 glasses of water today</p>
+                                </div>
+                            </div>
+                            <div class="tip-card">
+                                <div class="tip-icon rest-icon">
+                                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+                                        <circle cx="12" cy="12" r="10" fill="#FFB6C1"/>
+                                        <path d="M12 6V12L16 14" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                    </svg>
+                                </div>
+                                <div class="tip-content">
+                                    <h3 class="tip-title">Rest up</h3>
+                                    <p class="tip-description">Aim for 15-20 minute naps</p>
+                                </div>
+                            </div>
+                        </div>
+                    </section>
                 </div>
-                <div class="tip-content">
-                  <h4>Hydrate more!</h4>
-                  <p>Drink at least 6 glasses of water today</p>
+            </main>
+
+            <!-- Right Sidebar -->
+            <aside class="right-sidebar">
+                <!-- Tips of the day card -->
+                <div class="sidebar-card tips-card">
+                    <h3 class="card-title">Tips of the day</h3>
+                    <div class="tip-item">
+                        <h4 class="tip-title">Hydrate more!</h4>
+                        <p class="tip-text">Drink at least 8 glasses or</p>
+                        <div class="tip-icon-large">🥭</div>
+                    </div>
                 </div>
-              </div>
-              <div class="tip-card">
-                <div class="tip-icon-large pink-bg">
-                  <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
-                    <path
-                      d="M12 5v14M5 12h14"
-                      stroke="#ff6b9d"
-                      stroke-width="3"
-                      stroke-linecap="round"
-                    />
-                  </svg>
+
+                <!-- Baby Growth Tracker -->
+                <div class="sidebar-card growth-card">
+                    <h3 class="card-title">Baby Growth Tracker</h3>
+                    <div class="growth-stats">
+                        <div class="stat-row">
+                            <span class="stat-label">Your baby is the size of a</span>
+                            <span class="stat-value">1.05 lb</span>
+                        </div>
+                        <div class="stat-row">
+                            <span class="stat-label"></span>
+                            <span class="stat-value">10.9 in</span>
+                        </div>
+                        <div class="stat-row">
+                            <span class="stat-label">Movements</span>
+                            <span class="stat-value">8 kicks</span>
+                        </div>
+                    </div>
                 </div>
-                <div class="tip-content">
-                  <h4>Rest up</h4>
-                  <p>Aim for 15-20 minute naps</p>
-                </div>
-              </div>
-            </div>
-          </section>
+            </aside>
         </div>
-      </main>
     </div>
 
     <script src="script.js"></script>
-  </body>
+</body>
 </html>
